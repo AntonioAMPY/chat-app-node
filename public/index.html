@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+    <link rel="icon" href="/img/favicon.png" />
+    <link rel="stylesheet" href="/css/styles.min.css" />
+  </head>
+  <body>
+    <div class="centered-form">
+      <!-- <div class="centered-form__box">
+        <h2>Create a Room</h2>
+        <form action="chat.html">
+          <label>Display name</label>
+          <input type="text" name="username" required />
+          <label>Room</label>
+          <input type="text" name="room" required />
+          <button>Join</button>
+        </form>
+      </div> -->
+      <div class="centered-form__box">
+        <h2>Join a Room</h2>
+        <form action="chat.html">
+          <label>Display name</label>
+          <input type="text" name="username" required />
+          <div id="rooms"></div>
+          <script id="rooms-template" type="text/html">
+            <label>Rooms</label>
+            {{#rooms.length}}
+            <ul class="rooms-list">
+              {{#rooms}}
+              <li>
+                <input type="submit" name="room" value="{{room}}" />
+              </li>
+              {{/rooms}}
+            </ul>
+            {{/rooms.length}} 
+            {{^rooms.length}}
+            <p>No rooms active, create a new one!</p>
+            {{/rooms.length}} 
+          </script>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/rooms.js"></script>
+</html>
